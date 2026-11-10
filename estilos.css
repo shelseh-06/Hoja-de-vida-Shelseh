@@ -1,0 +1,106 @@
+/* ==========================================
+   VARIABLES DE COLOR (MODO CLARO Y OSCURO)
+   ========================================== */
+:root {
+    --bg-body: #ffe4ec;       /* Fondo rosado */
+    --bg-card: #ffffff;       /* Tarjetas blancas */
+    --text-main: #333333;     /* Texto oscuro */
+    --primary: #d81b60;       /* Rosa fuerte */
+    --primary-dark: #880e4f;  /* Vino */
+    --border-light: #f8bbd0;  /* Rosa claro */
+}
+
+html.dark {
+    --bg-body: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --text-main: #e8e8e8;
+    --primary: #f06292;
+    --primary-dark: #f48fb1;
+    --border-light: #4a1f30;
+}
+
+/* ==========================================
+   ESTILOS GENERALES
+   ========================================== */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Times New Roman', serif;
+    transition: background 0.3s, color 0.3s; /* Transición para el modo oscuro */
+}
+
+/* ==========================================
+   MENÚ Y HEADER
+   ========================================== */
+.site-header {
+    background: var(--bg-card);
+    position: sticky; top: 0; z-index: 100;
+    padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto; }
+.nav-links { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: bold; transition: color 0.2s; }
+.nav-links a:hover { color: var(--primary); }
+.menu-btn, .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+.menu-btn { display: none; }
+
+/* ==========================================
+   TARJETAS Y TEXTOS
+   ========================================== */
+.contenedor {
+    max-width: 1000px; margin: 20px auto; padding: 25px;
+    background: var(--bg-card); border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.encabezado { display: flex; align-items: center; gap: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 15px; flex-wrap: wrap; }
+.foto { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; transition: transform 0.3s; }
+.foto:hover { transform: scale(1.05); }
+.nombre { color: var(--primary); margin: 0; font-size: 1.8rem; }
+h2 { color: var(--primary); border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-top: 20px; }
+h3 { color: var(--primary-dark); margin-bottom: 5px; }
+
+/* ==========================================
+   PROYECTOS (Grid y Filtros)
+   ========================================== */
+.proyectos-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+.proyecto-card { border: 1px solid var(--border-light); padding: 15px; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+.proyecto-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(216,27,96,0.2); }
+.filtros { display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap; }
+.filtro-btn { background: var(--border-light); color: var(--primary-dark); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; transition: 0.2s; }
+.filtro-btn:hover { transform: translateY(-2px); }
+.filtro-btn.activo { background: var(--primary); color: white; }
+.loading { text-align: center; grid-column: 1 / -1; }
+
+/* ==========================================
+   FORMULARIO DE CONTACTO
+   ========================================== */
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
+.form-group { display: flex; flex-direction: column; }
+input, textarea { padding: 10px; border: 1px solid var(--border-light); border-radius: 5px; background: var(--bg-body); color: var(--text-main); font-family: inherit; }
+.error-msg { color: #e53935; font-size: 12px; display: none; margin: 5px 0 0; }
+.error-msg.show { display: block; }
+.btn-enviar { background: var(--primary); color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: 0.2s; }
+.btn-enviar:hover { background: var(--primary-dark); }
+.form-success { color: #2e7d32; background: #e8f5e9; padding: 10px; text-align: center; border-radius: 5px; display: none; }
+.form-success.show { display: block; }
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.site-footer { text-align: center; padding: 20px; color: var(--text-main); border-top: 1px solid var(--border-light); margin-top: 30px; opacity: 0.7; }
+
+/* ==========================================
+   DISEÑO RESPONSIVE (Móvil, Tablet, PC)
+   ========================================== */
+@media (max-width: 767px) {
+    .menu-btn { display: block; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-card); flex-direction: column; padding: 1rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .nav-links.open { display: flex; }
+    .encabezado { flex-direction: column; text-align: center; }
+}
+@media (min-width: 768px) { 
+    .proyectos-grid { grid-template-columns: 1fr 1fr; } /* 2 columnas en tablet */
+}
+@media (min-width: 1024px) { 
+    .proyectos-grid { grid-template-columns: 1fr 1fr 1fr; } /* 3 columnas en PC */
+}

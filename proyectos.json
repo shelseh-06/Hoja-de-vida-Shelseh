@@ -1,0 +1,20 @@
+[
+  {
+    "titulo": "Maqueta Didáctica de Redes",
+    "descripcion": "Modelo físico para explicar topologías de red a estudiantes.",
+    "categoria": "design",
+    "enlace": "#"
+  },
+  {
+    "titulo": "Análisis de Datos con Excel",
+    "descripcion": "Proyecto de limpieza y visualización de datos académicos.",
+    "categoria": "web",
+    "enlace": "#"
+  },
+  {
+    "titulo": "Prototipo de App Educativa",
+    "descripcion": "Prototipo interactivo en Figma para una app de aprendizaje.",
+    "categoria": "app",
+    "enlace": "#"
+  }
+]

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Vida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {darkMode: 'class'}
+    </script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="site-header">
+    <nav class="nav-wrapper" aria-label="Menú principal">
+        <a href="#sobre-mi" class="nav-logo">SOB</a>
+
+        <button id="menu-btn" class="menu-btn"
+                aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+            ☰
+        </button>
+
+        <ul id="nav-links" class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="sobre-mi" class="contenedor">
+        <!-- FOTO Y DATOS -->
+        <div class="encabezado">
+            <img src="imagen/foto.png" alt="Foto de perfil" class="foto">
+            <div>
+            <h1 class="nombre">SHELSEH NICOLLE OLAYA BADILLO</h1>
+            <p><strong>Tel:</strong> 3208525586</p>
+            <p><strong>Email:</strong> shelsehnicolleolayabadillo@gmail.com</p>
+            <p><em>Quibdó - Chocó, Colombia</em></p>
+            </div>
+        </div>
+
+        <!-- PERFIL -->
+        <div class="seccion">
+            <h2>Perfil Profesional</h2>
+            <p>
+            Estudiante de Ingeniería de Telecomunicaciones e Informática con un enfoque humano y creativo. Además de mi formación técnica en conectividad y mi certificación en Análisis de Datos, poseo una gran habilidad para la creación de recursos visuales, como maquetas y material didáctico. Me especializo en simplificar conceptos técnicos complejos a través del diseño, facilitando la comprensión de proyectos para cualquier audiencia y buscando siempre que la tecnología sea accesible para todos.
+            </p>
+        </div>
+
+        <!-- EXPERIENCIA -->
+        <div class="seccion">
+            <h2>Experiencia Laboral</h2>
+            <h3>Diseñador de Recursos Creativos y Multimedia </h3>
+            <p><em>Independiente</em></p>
+            <ul>
+                <li>Producción Audiovisual y Digital</li>
+                <li>Prototipado Físico y Diseño Visual</li>
+                <li>Análisis y Síntesis de Información</li>
+            </ul>
+        </div>   
+
+        <!-- FORMACION ACADEMICA -->
+        <div class="seccion">
+            <h2>Formación Académica</h2>
+            <h3>Bachiller con Énfasis en Humanidades</h3>
+            <p><em>Institución Educativa Femenina de Enseñanza Media</em></p>
+            <h3>Curso básico de Análisis de Datos </h3>
+            <p><em>Las Tecnologías de la Información y la Comunicación (TIC)</em></p>
+            <h3>Curso de la Aplicación de la Calidad del Software en el Proceso de Desarrollo  </h3>
+            <p><em>Servicio Nacional de Aprendizaje (SENA)</em></p>
+            <h3>Curso de Redacción y Ortografía </h3>
+            <p><em>Las Tecnologías de la Información y la Comunicación (TIC)</em></p>
+            <h3>Curso de Formulación y Evaluación de Proyectos </h3>
+            <p><em>Las Tecnologías de la Información y la Comunicación (TIC)</em></p>
+        </div>
+
+        <!-- HABILIDADES -->
+        <div class="seccion">
+            <h2>Habilidades y Competencias</h2>
+            <ul>
+            <li>Trabajo en equipo</li>
+            <li>Responsabilidad</li>
+            <li>Análisis y Procesamiento de Datos</li>
+            <li>Comunicación efectiva</li>
+            <li>Desarrollo de recursos didácticos</li>
+            <li>Gestión de Comunicación Visual</li>
+            </ul>
+        </div>
+
+        <!-- IDIOMAS -->
+        <div class="seccion">
+            <h2>Idiomas</h2>
+            <ul><li>Español: Nativo</li></ul>
+        </div> 
+    </section>
+    <section id="proyectos" class="contenedor">
+        <h2>Proyectos</h2>
+        <div class="filtros" role="group" aria-label="Filtros de proyectos">
+            <button class="filtro-btn activo" data-filter="todos">Todos</button>
+            <button class="filtro-btn" data-filter="web">Web</button>
+            <button class="filtro-btn" data-filter="app">App</button>
+            <button class="filtro-btn" data-filter="design">Diseño</button>
+        </div>
+        <div id="proyectos-container" class="proyectos-grid">
+            <p class="loading">Cargando proyectos...</p>
+        </div>
+    </section> 
+
+    <section id="contacto" class="contenedor">
+        <h2>Contacto</h2>
+        <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre"
+                        required minlength="2" maxlength="50"
+                        placeholder="Tu nombre">
+                <p class="error-msg">El nombre debe tener entre 3 y 50 caracteres.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required
+                        placeholder="tucorreo@ejemplo.com">
+                <p class="error-msg">Introduce un email válido.</p>        
+            </div>
+
+            <div class = "form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5"
+                        required minlength="10"
+                        placeholder="Escribe tu mensaje"> </textarea>
+                <p class="error-msg">El mensaje debe tener al menos 10 caracteres.</p>
+            </div>
+            <button type="submit" class="btn-enviar"> Enviar mensaje</button>
+            <p id="form-success" class="form-success">¡Mensaje enviado con éxito!
+            </p>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 Shelseh Nicolle Olaya Badillo.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
